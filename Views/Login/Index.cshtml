@@ -1,0 +1,48 @@
+﻿@using OnlineSiparis.Models
+@model Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Panel Login</title>
+    <link href="~/login/login.css" rel="stylesheet" />
+</head>
+<body>
+        <div class="container">
+            <div class="contact-form">
+
+                <h2>Admin Login</h2>
+
+                @using (Html.BeginForm("Alogin", "login", new { FormMethod.Post }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="txtb">
+                        @*<input type="text" placeholder="Kullanıcı Adı"/>*@
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Kullanıcı Adı", autofocus = "auto" })
+                    </div>
+                    <div class="txtb">
+                        @*<input type="password" placeholder="Şifre" />*@
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre" })
+
+                    </div>
+                    <input type="submit" class="logbtn" value="Giriş Yap" />
+                }
+
+                @*//hata mesajının goruntulenmesi*@
+                @if (ViewBag.Hata != null)
+                {
+                    <div class="alert alert-danger" at-4>
+                        @ViewBag.Hata
+                    </div>
+                }
+
+            </div>
+        </div>
+</body>
+</html>

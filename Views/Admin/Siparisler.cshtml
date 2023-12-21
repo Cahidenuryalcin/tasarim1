@@ -1,0 +1,61 @@
+﻿
+
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+<div class="w3-container w3-teal">
+    <h1>Siparişler</h1>
+</div>
+
+@foreach (var order in Model)
+    {
+      <h1><b>MASA NO</b> <b style="color:lightseagreen">@order.Id</b></h1>
+
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    Ad
+                </th>
+                <th>
+                    Yemek Id
+                </th>
+                <th>
+                    Adet
+                </th>
+                <th>
+                    Servis Sayısı
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var orderLine in order.OrderLines)
+            {
+            <tr>
+                <td>
+                    @orderLine.OrderDate
+                </td>
+                <td>
+
+                    @orderLine.Name
+                </td>
+
+                <td>
+                    @orderLine.Yemek_Id
+
+                </td>
+                <td>
+                    @orderLine.Quantity
+                </td>
+
+                <th>
+                    @orderLine.Service
+                </th>
+                
+            </tr>}
+        </tbody>
+    </table>
+    }

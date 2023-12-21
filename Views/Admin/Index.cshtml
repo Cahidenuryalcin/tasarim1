@@ -1,0 +1,114 @@
+﻿
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h1>Masalar</h1>
+
+
+<div class="container">
+
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4 class="card-title"></h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @foreach (var order in Model)
+                {
+    <div class="col-md-2 mb-2">
+        <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#exampleModal-@order.Id">
+            <div class="card-body text-center">
+                <h1> @order.Id</h1>
+            </div>
+        </button>
+
+
+        <div class="modal fade" id="exampleModal-@order.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Masa @order.Id</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Tarih
+                                    </th>
+                                    <th>
+                                        Ad
+                                    </th>
+                                    <th>
+                                        Yemek Id
+                                    </th>
+
+                                    <th>
+                                        Adet
+                                    </th>
+                                    <th>
+                                        Fiyat
+                                    </th>
+
+                                    <th>
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var orderLine in order.OrderLines)
+                                {
+                                <tr>
+                                    <th>
+                                        @orderLine.OrderDate
+                                    </th>
+                                    <td>
+                                        @orderLine.Name
+                                    </td>
+
+                                    <td>
+                                        @orderLine.Yemek_Id
+
+                                    </td>
+                                    <td>
+                                        @orderLine.Quantity
+                                    </td>
+
+                                    <td>
+                                        @orderLine.Price
+                                    </td>
+
+                                    <th>
+
+                                        <a href="/Admin/OdemeAlindi/@orderLine.Id" class="btn btn-outline-success">Ödeme Alındı</a>
+                                    </th>
+                                </tr>
+}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+
+                        <button type="button" class="btn btn-primary">Kaydet</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>}
+
+
+                <!-- Modal -->
+
+            </div>
+        </div>
+    </div>
+</div>
+

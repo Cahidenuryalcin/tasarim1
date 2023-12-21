@@ -1,0 +1,39 @@
+﻿@using OnlineSiparis.Entity;
+@model IEnumerable<Yemek>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>Menü İşlemleri</h2>*@
+<div class="w3-container w3-teal">
+    <h1>Menü işlemleri</h1>
+</div>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>ID</th>
+        <th>YEMEK AD</th>
+        <th>RESİM</th>
+        <th>FİYAT</th>
+        <th>GUNCELLE</th>
+        <th>SİL</th>
+    </tr>
+
+    @foreach (var yemekler in Model)
+    {
+
+        <tr>
+            <td>@yemekler.Id</td>
+            <td>@yemekler.Name</td>
+            <td>@yemekler.Image</td>
+            <td>@yemekler.Price</td>
+            <td><a href="/Admin/AnaSayfaGetir/@yemekler.Id" class="btn btn-primary">GÜNCELLE</a></td>
+            <td><a href="/Admin/Sil/@yemekler.Id" class="btn btn-danger">SİL</a></td>
+        </tr>
+
+
+    }
+</table>
+<a href="/Admin/Ekle" class="btn btn-success mt-4 w-25 m-3 ">Yemek Ekle</a>

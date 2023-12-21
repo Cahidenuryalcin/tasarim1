@@ -1,0 +1,26 @@
+﻿@using OnlineSiparis.Entity;
+@model IEnumerable<Yemek>
+
+
+@{
+    Layout = Layout = "~/Views/Shared/_Menu.cshtml"; ;
+}
+
+
+            @foreach (var yemekler in Model)
+            {
+                <div class="product-box">
+                <img src="~/projefoto/@yemekler.Image" alt="" class="product-img" />
+                <h2 class="product-title">@yemekler.Name</h2>
+                <span class="price">@yemekler.Price.ToString("c")</span>
+
+                @using(@Html.BeginForm("AddToCart", "Cart",new { Id = yemekler.Id}))
+                {
+                 
+                    <button class="btn btn-link">
+                        <i class="bx bx-shopping-bag add-cart"></i>
+                    </button>
+                }
+                </div>
+            }
+

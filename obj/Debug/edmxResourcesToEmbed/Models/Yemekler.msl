@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Dbo_siparisModelStoreContainer" CdmEntityContainer="Dbo_siparisEntities">
+    <EntitySetMapping Name="Tbl_Siparis">
+      <EntityTypeMapping TypeName="Dbo_siparisModel.Tbl_Siparis">
+        <MappingFragment StoreEntitySet="Tbl_Siparis">
+          <ScalarProperty Name="SiparisId" ColumnName="SiparisId" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="MasaNo" ColumnName="MasaNo" />
+          <ScalarProperty Name="ToplamFiyat" ColumnName="ToplamFiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Yemekler">
+      <EntityTypeMapping TypeName="Dbo_siparisModel.Tbl_Yemekler">
+        <MappingFragment StoreEntitySet="Tbl_Yemekler">
+          <ScalarProperty Name="YemekId" ColumnName="YemekId" />
+          <ScalarProperty Name="YemekAd" ColumnName="YemekAd" />
+          <ScalarProperty Name="YemekResim" ColumnName="YemekResim" />
+          <ScalarProperty Name="YemekFiyat" ColumnName="YemekFiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Dbo_siparisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Siparis">
+    <Key>
+      <PropertyRef Name="SiparisId" />
+    </Key>
+    <Property Name="SiparisId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunId" Type="smallint" Nullable="false" />
+    <Property Name="MasaNo" Type="tinyint" Nullable="false" />
+    <Property Name="ToplamFiyat" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Yemekler">
+    <Key>
+      <PropertyRef Name="YemekId" />
+    </Key>
+    <Property Name="YemekId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YemekAd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="YemekResim" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="YemekFiyat" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ybl_Admin">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminAd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminSifre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Dbo_siparisModelStoreContainer">
+    <EntitySet Name="Tbl_Siparis" EntityType="Self.Tbl_Siparis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Yemekler" EntityType="Self.Tbl_Yemekler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ybl_Admin" EntityType="Self.Ybl_Admin" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
